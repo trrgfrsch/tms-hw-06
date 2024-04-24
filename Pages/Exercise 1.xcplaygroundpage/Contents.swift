@@ -5,20 +5,10 @@ import UIKit
 ["123 hello", "other", "no name 1111", "custom number", "111", "", "345 and 1112"]
 
 let array = ["123 hello", "other", "no name 1111", "custom number", "111", "", "345 and 1112"]
-
-
-
-for str in array {
-    if let firstString = array.first(where: { str in
-        <#code#>
-    }) {
-        let components = firstString.components(separatedBy: " ")
-        if let numberString = components.first, let number = Int(numberString) {
-            
-        }
-
-        }
-    }
+array
+    .map {$0.components(separatedBy: .whitespacesAndNewlines)[0]}
+    .compactMap{Int($0)}
+    .map{print("\($0) * 2 = \(($0) * 2)")}
 
 
 
